@@ -4,6 +4,10 @@ All notable changes to this repository are documented here.
 
 ## [Unreleased]
 
+### Added
+
+- Third-party notices crediting the upstream publisher and Unraid community while clarifying license and trademark boundaries.
+
 ## [1.0.0] - 2026-09-20
 
 ### Added
@@ -17,4 +21,3 @@ All notable changes to this repository are documented here.
 
 [Unreleased]: https://github.com/ctrlcmdshft/unraid-trellis/compare/v1.0.0...HEAD
 [1.0.0]: https://github.com/ctrlcmdshft/unraid-trellis/releases/tag/v1.0.0
-

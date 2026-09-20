@@ -1,6 +1,5 @@
 blank_issues_enabled: false
 contact_links:
   - name: Upstream Trellis support
-    url: https://github.com/lpierpoint?tab=packages
+    url: https://github.com/users/lpierpoint/packages/container/package/trellis
     about: Use an official upstream channel, if available, for Trellis application or image issues.
-

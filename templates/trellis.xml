@@ -2,7 +2,7 @@
 <Container version="2">
   <Name>Trellis</Name>
   <Repository>ghcr.io/lpierpoint/trellis:latest</Repository>
-  <Registry>https://github.com/lpierpoint?tab=packages</Registry>
+  <Registry>https://github.com/users/lpierpoint/packages/container/package/trellis</Registry>
   <Network>bridge</Network>
   <MyIP/>
   <Shell>sh</Shell>
@@ -15,11 +15,10 @@
   <TemplateURL>https://raw.githubusercontent.com/ctrlcmdshft/unraid-trellis/main/templates/trellis.xml</TemplateURL>
   <Icon>https://raw.githubusercontent.com/ctrlcmdshft/unraid-trellis/main/assets/trellis-community.png</Icon>
   <ReadMe>https://github.com/ctrlcmdshft/unraid-trellis#readme</ReadMe>
-  <License>Repository template/docs: MIT. Trellis/upstream image: separate, unverified terms.</License>
+  <License>Integration repository: MIT. Trellis/upstream image: not licensed by this repository; upstream metadata says NOASSERTION.</License>
   <ExtraSearchTerms>trellis strand unofficial community</ExtraSearchTerms>
   <Requires>This is an unofficial integration. Back up appdata before updates. The mutable upstream latest tag and Trellis itself are controlled by the upstream publisher.</Requires>
   <ExtraParams>--restart=unless-stopped</ExtraParams>
   <Config Name="Appdata" Target="/config" Default="/mnt/user/appdata/trellis" Mode="rw" Description="Persistent Trellis configuration and application data." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/trellis</Config>
   <Config Name="Web UI Port" Target="8477" Default="8477" Mode="tcp" Description="Host port for the Trellis web interface. The container port remains 8477." Type="Port" Display="always" Required="true" Mask="false">8477</Config>
 </Container>
-

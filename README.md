@@ -2,7 +2,7 @@
 
 [![Validate template](https://github.com/ctrlcmdshft/unraid-trellis/actions/workflows/validate.yml/badge.svg)](https://github.com/ctrlcmdshft/unraid-trellis/actions/workflows/validate.yml)
 
-This repository provides an **unofficial community-maintained Unraid Docker template** for the upstream container image [`ghcr.io/lpierpoint/trellis:latest`](https://github.com/lpierpoint?tab=packages).
+This repository provides an **unofficial community-maintained Unraid Docker template** for the upstream container image [`ghcr.io/lpierpoint/trellis:latest`](https://github.com/users/lpierpoint/packages/container/package/trellis).
 
 It is not affiliated with, endorsed by, or maintained by Trellis, Strand, or their developers. Trellis itself is **not included, copied, modified, built, or redistributed** here. Unraid pulls the container image directly from its upstream publisher on GitHub Container Registry.
 
@@ -80,3 +80,4 @@ The icon in `assets/` is an original generic lattice/container mark created for 
 
 The template, documentation, workflow, and original community icon in this repository are licensed under the MIT License; see [`LICENSE`](LICENSE). That license does **not** apply to Trellis, Strand, the upstream container image, or any third-party software.
 
+See [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md) for upstream credit, trademark notices, verified license limitations, and acknowledgement of the Trellis/Strand developers, the upstream publisher, and the Unraid community.
