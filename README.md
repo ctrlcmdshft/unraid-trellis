@@ -8,6 +8,18 @@ It is not affiliated with, endorsed by, or maintained by Trellis, Strand, or the
 
 ## Install on Unraid
 
+### Prepare the appdata directory
+
+Trellis runs inside the upstream container as the unprivileged user and group `10001:10001`. Before creating the container, open the Unraid terminal and prepare its appdata directory:
+
+```bash
+mkdir -p /mnt/user/appdata/trellis
+chown -R 10001:10001 /mnt/user/appdata/trellis
+chmod -R u+rwX /mnt/user/appdata/trellis
+```
+
+This allows Trellis to create `/config/trellis.config.json` without running the application as root. If you choose a different host appdata path, substitute that exact path in all three commands.
+
 ### Manual template install
 
 1. Download [`templates/trellis.xml`](https://raw.githubusercontent.com/ctrlcmdshft/unraid-trellis/main/templates/trellis.xml).
@@ -15,6 +27,8 @@ It is not affiliated with, endorsed by, or maintained by Trellis, Strand, or the
 3. In the Unraid web interface, open **Docker**, choose **Add Container**, and select **Trellis** from the template list.
 4. Review the settings and apply the template.
 5. Open `http://YOUR-UNRAID-IP:8477`.
+
+You can confirm the service is responding at `http://YOUR-UNRAID-IP:8477/System/Ping`.
 
 Defaults:
 
@@ -30,6 +44,18 @@ Defaults:
 | Restart policy | `unless-stopped` |
 
 The host port and appdata path may be changed during installation. Do not change the container port or `/config` target unless the upstream image changes.
+
+## Troubleshooting
+
+### The WebUI does not open
+
+1. Check that the container is running rather than stopped or repeatedly restarting.
+2. Open **Docker → Trellis → Logs** in Unraid and inspect the first startup error.
+3. Confirm the port mapping is `8477:8477/TCP`. If host port `8477` is already occupied, choose another host port in the template; keep the container port at `8477`.
+4. Visit `http://YOUR-UNRAID-IP:8477/System/Ping`. A response means the service is running even if the main page is not loading.
+5. If the logs mention `/config`, `trellis.config.json`, or permission denied, run the appdata preparation commands above and restart the container.
+
+Do not solve appdata permission errors by enabling privileged mode or running the container as root. The upstream image is designed to run as user `10001`.
 
 ## Updates
 
@@ -47,6 +73,8 @@ docker compose -f docker-compose.example.yml up -d
 ```
 
 The example uses a local `./trellis-config` directory so it is portable. Set `TRELLIS_CONFIG_DIR=/mnt/user/appdata/trellis` to mirror the Unraid path.
+
+When using a bind-mounted directory with Compose, ensure it is writable by UID/GID `10001:10001` before starting the service.
 
 ## Verified upstream image metadata
 

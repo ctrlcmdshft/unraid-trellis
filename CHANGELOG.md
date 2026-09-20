@@ -7,6 +7,7 @@ All notable changes to this repository are documented here.
 ### Added
 
 - Third-party notices crediting the upstream publisher and Unraid community while clarifying license and trademark boundaries.
+- Pre-install appdata ownership instructions and WebUI troubleshooting guidance for the upstream non-root user `10001:10001`.
 
 ## [1.0.0] - 2026-09-20
 
