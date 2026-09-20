@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CommunityApplications>
+  <Profile>Unofficial community-maintained Unraid integration templates. This repository does not redistribute Trellis and is not affiliated with Trellis or Strand.</Profile>
+  <Forum>https://github.com/ctrlcmdshft/unraid-trellis/issues</Forum>
+  <WebPage>https://github.com/ctrlcmdshft/unraid-trellis</WebPage>
+  <Icon>https://raw.githubusercontent.com/ctrlcmdshft/unraid-trellis/main/assets/trellis-community.png</Icon>
+</CommunityApplications>

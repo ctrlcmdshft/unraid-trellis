@@ -1,0 +1,12 @@
+name: trellis
+
+services:
+  trellis:
+    image: ghcr.io/lpierpoint/trellis:latest
+    container_name: trellis
+    restart: unless-stopped
+    ports:
+      - "8477:8477"
+    volumes:
+      - "${TRELLIS_CONFIG_DIR:-./trellis-config}:/config"
+

@@ -1,0 +1,20 @@
+name: Template improvement
+description: Suggest an improvement to this Unraid integration.
+title: "[Enhancement]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed improvement
+      description: Explain the use case and desired behavior.
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope confirmation
+      options:
+        - label: This request is for the Unraid integration and does not require redistributing or modifying Trellis.
+          required: true
+

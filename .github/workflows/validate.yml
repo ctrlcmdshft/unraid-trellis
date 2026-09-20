@@ -1,0 +1,27 @@
+name: Validate template
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate XML syntax
+        run: |
+          xmllint --noout templates/trellis.xml
+          xmllint --noout ca_profile.xml
+      - name: Check required template values
+        shell: bash
+        run: |
+          grep -Fq '<Repository>ghcr.io/lpierpoint/trellis:latest</Repository>' templates/trellis.xml
+          grep -Fq '<WebUI>http://[IP]:[PORT:8477]</WebUI>' templates/trellis.xml
+          grep -Fq 'Target="/config"' templates/trellis.xml
+          grep -Fq 'Default="/mnt/user/appdata/trellis"' templates/trellis.xml
+          grep -Fq -- '--restart=unless-stopped' templates/trellis.xml
+

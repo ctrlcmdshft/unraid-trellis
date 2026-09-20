@@ -1,0 +1,47 @@
+name: Template bug
+description: Report a problem with the Unraid template, documentation, or community icon.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include passwords, tokens, private configuration, or sensitive logs. Upstream Trellis application bugs belong with the upstream publisher.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      options:
+        - Unraid XML template
+        - Documentation
+        - Docker Compose example
+        - Community icon
+    validations:
+      required: true
+  - type: input
+    id: unraid-version
+    attributes:
+      label: Unraid version
+      placeholder: e.g. 7.x
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Include the expected result and the actual result.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I removed secrets and personal data.
+          required: true
+        - label: This concerns the integration repository, not an upstream Trellis application bug.
+          required: true
+
