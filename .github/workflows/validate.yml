@@ -14,8 +14,12 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate XML syntax
         run: |
-          xmllint --noout templates/trellis.xml
-          xmllint --noout ca_profile.xml
+          python - <<'PY'
+          import xml.etree.ElementTree as ET
+          for path in ("templates/trellis.xml", "ca_profile.xml"):
+              ET.parse(path)
+              print(f"Valid XML: {path}")
+          PY
       - name: Check required template values
         shell: bash
         run: |
@@ -24,4 +28,3 @@ jobs:
           grep -Fq 'Target="/config"' templates/trellis.xml
           grep -Fq 'Default="/mnt/user/appdata/trellis"' templates/trellis.xml
           grep -Fq -- '--restart=unless-stopped' templates/trellis.xml
-
